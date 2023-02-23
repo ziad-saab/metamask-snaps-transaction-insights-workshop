@@ -1,13 +1,10 @@
 {
-  "name": "snap",
+  "name": "ethdenver-snaps-workshop-snap",
   "version": "0.1.0",
   "private": true,
-  "description": "The 'Hello, world!' of MetaMask Snaps, now written in TypeScript.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/MetaMask/template-snap-monorepo.git"
-  },
-  "license": "(MIT-0 OR Apache-2.0)",
+  "description": "This snap adds transaction insights to MetaMask showing what % of an ETH transfer is paid in gas fees.",
+  "license": "MIT",
+  "author": "Ziad Saab <ziad.saab@gmail.com>",
   "main": "src/index.ts",
   "files": [
     "dist/",

@@ -1,18 +1,14 @@
 {
   "version": "0.1.0",
-  "description": "An example Snap written in TypeScript.",
-  "proposedName": "TypeScript Example Snap",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/MetaMask/template-snap-monorepo.git"
-  },
+  "description": "This snap adds transaction insights to MetaMask showing what % of an ETH transfer is paid in gas fees.",
+  "proposedName": "ETHDenver 2023 Percent Snap",
   "source": {
     "shasum": "IgmLa9j7q8fAStRzmp9l/r1to0jAA9TxWRQjf3ghA+Y=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
         "iconPath": "images/icon.svg",
-        "packageName": "snap",
+        "packageName": "ethdenver-snaps-workshop-snap",
         "registry": "https://registry.npmjs.org/"
       }
     }
