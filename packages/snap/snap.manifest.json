@@ -3,7 +3,7 @@
   "description": "This snap adds transaction insights to MetaMask showing what % of an ETH transfer is paid in gas fees.",
   "proposedName": "ETHDenver 2023 Percent Snap",
   "source": {
-    "shasum": "IgmLa9j7q8fAStRzmp9l/r1to0jAA9TxWRQjf3ghA+Y=",
+    "shasum": "e+OBYeOt8Jo3ACzAR5YyZYTfDXyPQX5AdDiyZUveuGc=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
@@ -14,11 +14,7 @@
     }
   },
   "initialPermissions": {
-    "snap_dialog": {},
-    "endowment:rpc": {
-      "dapps": true,
-      "snaps": false
-    }
+    "endowment:transaction-insight": {}
   },
   "manifestVersion": "0.1"
 }

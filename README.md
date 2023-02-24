@@ -5,6 +5,7 @@ Welcome to this ETHDenver 2023 workshop on [MetaMask 🦊 Snaps](https://metamas
 Doing so will require multiple steps. If you want to follow the workshop step-by-step, you'll find each incremental step in branches of the form `step-XX` in this repository:
 
 1. [Step 1](/tree/step-01): Initialization,  cleanup, and setup
+2. [Step 2](/tree/step-02): Setting up the snap for Transaction Insights
 
 ## Step 1: Initialization, cleanup, and setup
 
@@ -71,3 +72,75 @@ If coding your snap with Visual Studio Code, you can create or update the file `
   "editor.tabSize": 2
 }
 ```
+
+---
+
+## Step 2: Setting up the snap for Transaction Insights
+
+The template snap provided to you is setup to expose a JSON-RPC API with a simple `hello` command, which brings up a dialog box. In contrast, the snap we're creating for this workshop doesn't expose any API. Instead it provides transaction insights directly in the MetaMask transaction window. In this step, we'll be removing code and permissions related to the JSON-RPC API, adding basic transaction insights code, and testing the resulting snap. In the process, we'll also learn how to debug a snap.
+
+### Removing JSON-RPC-related code and configuration
+
+1. Remove all the code in `/packages/snap/src/index.ts`
+2. In `/packages/snap/snap.manifest.json` remove the entries `snap_dialog` and `endowment:rpc` under `initialPermissions`
+
+### Adding Transaction Insights code and configuration
+
+1. In `/packages/snap/src/index.ts` add the following code:
+
+    ```typescript
+    import { OnTransactionHandler } from '@metamask/snaps-types';
+    import { heading, panel, text } from '@metamask/snaps-ui';
+
+    // Handle outgoing transactions
+    export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
+      console.log('Transaction insights transaction', transaction);
+
+      return {
+        content: panel([
+          heading('Percent Snap'),
+          text(
+            'This snap will show you what percentage of your ETH transfers are paid in gas fees.',
+          ),
+        ]),
+      };
+    };
+    ```
+
+2. In `/packages/snap/snap.manifest.json`, make `initialPermissions` the following object:
+
+    ```json
+    {
+        "endowment:transaction-insight": {}
+    }
+    ```
+
+### Installing and testing the snap
+
+1. From the root of the project, run `yarn start` or `npm start`. This will start two development servers: one for watching and compiling the snap, and another one for the React site. The snap bundle will be served from `localhost:8080`, and the site will be served from `localhost:8000`.
+
+2. Open `http://localhost:8000` in your browser
+
+3. Press the "Connect" button, and accept the permission request.
+
+4. On the next screen, notice that the "Install Snap" dialog is telling you that the snap wants the permission to "Fetch and display transaction insights". Press "Approve & install".
+
+5. From MetaMask, create a new ETH transfer
+
+6. On the confirmation window, you'll see a new tab named "ETHDENVER 2023 PERCENT SNAP". Switch to that tab. Note that it's the switching to the tab that activates the `onTransaction` export of your snap to be called.
+
+7. Notice the Custom UI output from the snap.
+
+8. If you look in your browser's dev tools for the `console.log` that we setup, you'll notice that it's not there. That's because `console.log`s from your snap are happening inside the extension. In the next section, we'll see how to debug a snap.
+
+### Debugging your snap
+
+1. Go to `chrome://extensions/`
+
+2. On the top right-hand corner, make sure that "Developer mode" is on
+
+3. Find MetaMask Flask, and click on "Details"
+
+4. Under "Inspect views", click on `background.html`
+
+5. Go back to the MetaMask transaction window, and switch back to the "ETHDENVER 2023 PERCENT SNAP". You should now see the result of your `console.log` in the new developer tools window linked to `background.html`
