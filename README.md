@@ -6,6 +6,7 @@ Doing so will require multiple steps. If you want to follow the workshop step-by
 
 1. [Step 1](/tree/step-01): Initialization,  cleanup, and setup
 2. [Step 2](/tree/step-02): Setting up the snap for Transaction Insights
+3. [Step 3](/tree/step-03): Enabling the Ethereum Provider in the snap
 
 ## Step 1: Initialization, cleanup, and setup
 
@@ -144,3 +145,16 @@ The template snap provided to you is setup to expose a JSON-RPC API with a simpl
 4. Under "Inspect views", click on `background.html`
 
 5. Go back to the MetaMask transaction window, and switch back to the "ETHDENVER 2023 PERCENT SNAP". You should now see the result of your `console.log` in the new developer tools window linked to `background.html`
+
+## Step 3: Enabling the Ethereum Provider in the snap
+
+To show the end user the percentage of their transfer that they're paying in gas fees, we have to know the current gas price. We can easily get this by calling the `eth_gasPrice` method using the global Ethereum provider made available to snaps.
+
+To use the global Ethereum provider, we have to request permission for it. Open the file at `/packages/snap/snap.manifest.json`, and change the `initialPermissions` to:
+
+```json
+{
+  "endowment:transaction-insight": {},
+  "endowment:ethereum-provider": {}
+}
+```

@@ -14,7 +14,8 @@
     }
   },
   "initialPermissions": {
-    "endowment:transaction-insight": {}
+    "endowment:transaction-insight": {},
+    "endowment:ethereum-provider": {}
   },
   "manifestVersion": "0.1"
 }
