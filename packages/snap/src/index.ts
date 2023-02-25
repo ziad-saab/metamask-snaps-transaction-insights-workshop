@@ -3,6 +3,17 @@ import { heading, panel, text } from '@metamask/snaps-ui';
 
 // Handle outgoing transactions
 export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
+  if (typeof transaction.data === 'string' && transaction.data !== '0x') {
+    return {
+      content: panel([
+        heading('Percent Snap'),
+        text(
+          'This snap only provides transaction insights for simple ETH transfers.',
+        ),
+      ]),
+    };
+  }
+
   const currentGasPrice = await ethereum.request<string>({
     method: 'eth_gasPrice',
   });

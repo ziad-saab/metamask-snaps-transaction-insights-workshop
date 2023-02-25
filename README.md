@@ -11,6 +11,7 @@ Doing so will require multiple steps. If you want to follow the workshop step-by
 5. [Step 5](/tree/step-05): Showing the gas price in the transaction insights UI
 6. [Step 6](/tree/step-06): Calculating and displaying the total gas that would be paid
 7. [Step 7](/tree/step-07): Calculating and displaying the percentage of gas fees
+8. [Step 8](/tree/step-08): Displaying a different UI for contract interactions
 
 ## Step 1: Initialization, cleanup, and setup
 
@@ -273,3 +274,22 @@ Reinstall your snap, reactivate the "PERCENT SNAP" tab, and you should see a mes
 > As setup, you are paying **0.17%** in gas fees for this transaction.
 
 Well done! One more step to go 🔥
+
+## Step 8: Displaying a different UI for contract interactions
+
+Our transaction insights snap should only display a percentage if the user is doing a regular ETH transfer. For contract interactions, we should display a UI that conveys that message. Let's add this code to the beginning of our `onTransaction` export:
+
+```typescript
+if (typeof transaction.data === 'string' && transaction.data !== '0x') {
+  return {
+    content: panel([
+      heading('Percent Snap'),
+      text(
+        'This snap only provides transaction insights for simple ETH transfers.',
+      ),
+    ]),
+  };
+}
+```
+
+This completes the creation of our snap. Good work 🦊♥️
