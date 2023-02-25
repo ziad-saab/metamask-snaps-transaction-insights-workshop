@@ -8,6 +8,7 @@ Doing so will require multiple steps. If you want to follow the workshop step-by
 2. [Step 2](/tree/step-02): Setting up the snap for Transaction Insights
 3. [Step 3](/tree/step-03): Enabling the Ethereum Provider in the snap
 4. [Step 4](/tree/step-04): Fetching the gas price
+5. [Step 5](/tree/step-05): Showing the gas price in the transaction insights UI
 
 ## Step 1: Initialization, cleanup, and setup
 
@@ -175,3 +176,20 @@ console.log('Current gas price', currentGasPrice);
 ```
 
 Reinstall the snap, go back to the MetaMask transaction window, and switch to the "ETHDENVER 2023 PERCENT SNAP" tab. This will activate the `onTransaction` callback. In the developer tools window you should see a `console.log` like `Current gas price 0x66b04938`. The gas price is returned as a hex string in wei.
+
+## Step 5: Showing the gas price in the transaction insights UI
+
+In this step, we'll remove the `console.log` for the `currentGasPrice`. Instead, we'll display the current gas price in wei in the transaction insights UI.
+
+1. Remove the `console.log` for the `currentGasPrice
+
+2. Replace the `return` statement in the `onTransaction` with the following:
+
+    ```typescript
+    return {
+      content: panel([
+        heading('Percent Snap'),
+        text(`Current gas price: ${parseInt(currentGasPrice ?? '', 16)} wei`),
+      ]),
+    };
+    ```
