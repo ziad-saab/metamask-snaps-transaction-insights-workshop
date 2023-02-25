@@ -9,6 +9,7 @@ Doing so will require multiple steps. If you want to follow the workshop step-by
 3. [Step 3](/tree/step-03): Enabling the Ethereum Provider in the snap
 4. [Step 4](/tree/step-04): Fetching the gas price
 5. [Step 5](/tree/step-05): Showing the gas price in the transaction insights UI
+6. [Step 6](/tree/step-06): Calculating and displaying the total gas that would be paid
 
 ## Step 1: Initialization, cleanup, and setup
 
@@ -193,3 +194,55 @@ In this step, we'll remove the `console.log` for the `currentGasPrice`. Instead,
       ]),
     };
     ```
+
+## Step 6: Calculating and displaying the total gas that would be paid
+
+When implementing transaction insights, we get access to the following fields in the `transaction` object:
+
+```json
+{
+  "from": "sender address",
+  "gas": "0x5208",
+  "maxFeePerGas": "0x1014e7ff3c",
+  "maxPriorityFeePerGas": "0x59682f00",
+  "to": "receiver address",
+  "type": "0x2",
+  "value": "0x16345785d8a0000"
+}
+```
+
+We can roughly calculate the gas fees that the user would pay like this:
+
+```typescript
+const transactionGas = parseInt(transaction.gas as string, 16);
+const currentGasPriceInWei = parseInt(currentGasPrice ?? '', 16);
+const maxFeePerGasInWei = parseInt(transaction.maxFeePerGas as string, 16);
+const maxPriorityFeePerGasInWei = parseInt(
+  transaction.maxPriorityFeePerGas as string,
+  16,
+);
+
+const gasFees = Math.min(
+  maxFeePerGasInWei * transactionGas,
+  (currentGasPriceInWei + maxPriorityFeePerGasInWei) * transactionGas,
+);
+```
+
+Let's update the Custom UI output to show that:
+
+```typescript
+return {
+  content: panel([
+    heading('Percent Snap'),
+    text(
+      `As setup, this transaction would cost **${
+        gasFees / 1_000_000_000
+      }** gwei in gas.`,
+    ),
+  ]),
+};
+```
+
+Reinstall your snap, then reload the "PERCENT SNAP" transaction insights tab. You should now see a message like:
+
+> As setup, this transaction would cost **238377.74415** gwei in gas.
