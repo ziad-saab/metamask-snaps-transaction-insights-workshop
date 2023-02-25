@@ -5,6 +5,12 @@ import { heading, panel, text } from '@metamask/snaps-ui';
 export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
   console.log('Transaction insights transaction', transaction);
 
+  const currentGasPrice = await ethereum.request({
+    method: 'eth_gasPrice',
+  });
+
+  console.log('Current gas price', currentGasPrice);
+
   return {
     content: panel([
       heading('Percent Snap'),

@@ -7,6 +7,7 @@ Doing so will require multiple steps. If you want to follow the workshop step-by
 1. [Step 1](/tree/step-01): Initialization,  cleanup, and setup
 2. [Step 2](/tree/step-02): Setting up the snap for Transaction Insights
 3. [Step 3](/tree/step-03): Enabling the Ethereum Provider in the snap
+4. [Step 4](/tree/step-04): Fetching the gas price
 
 ## Step 1: Initialization, cleanup, and setup
 
@@ -158,3 +159,19 @@ To use the global Ethereum provider, we have to request permission for it. Open 
   "endowment:ethereum-provider": {}
 }
 ```
+
+Since you've made some changes to your snap, you'll have to reinstall it. Go back to the Dapp and press the "Reconnect" button. In the "Install snap" window, you'll see a new permission request to "Access the Ethereum provider". Press "Approve & install".
+
+## Step 4: Fetching the gas price
+
+To fetch the gas price, we can simply use the `ethereum` global. Add this code between the `console.log` and the `return` in the `onTransaction` export of your snap:
+
+```typescript
+const currentGasPrice = await ethereum.request({
+  method: 'eth_gasPrice',
+});
+
+console.log('Current gas price', currentGasPrice);
+```
+
+Reinstall the snap, go back to the MetaMask transaction window, and switch to the "ETHDENVER 2023 PERCENT SNAP" tab. This will activate the `onTransaction` callback. In the developer tools window you should see a `console.log` like `Current gas price 0x66b04938`. The gas price is returned as a hex string in wei.
