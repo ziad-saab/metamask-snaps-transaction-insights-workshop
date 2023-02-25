@@ -1,4 +1,4 @@
-# ETHDenver 2023 Workshop: Providing Transaction Insights with MetaMask 🦊 Snaps
+# ETHDenver 2023 Workshop: Providing Transaction Insights with MetaMask 🦊 Snaps 🔥
 
 Welcome to this ETHDenver 2023 workshop on [MetaMask 🦊 Snaps](https://metamask.io/snaps/)! In this workshop, we're going to extend the functionality of the MetaMask wallet by providing users with useful transaction insights. More specifically, for simple ETH transfers, we'll be showing users what percentage of the value of their ETH transfer they'd be paying in gas fees.
 
@@ -10,6 +10,7 @@ Doing so will require multiple steps. If you want to follow the workshop step-by
 4. [Step 4](/tree/step-04): Fetching the gas price
 5. [Step 5](/tree/step-05): Showing the gas price in the transaction insights UI
 6. [Step 6](/tree/step-06): Calculating and displaying the total gas that would be paid
+7. [Step 7](/tree/step-07): Calculating and displaying the percentage of gas fees
 
 ## Step 1: Initialization, cleanup, and setup
 
@@ -246,3 +247,29 @@ return {
 Reinstall your snap, then reload the "PERCENT SNAP" transaction insights tab. You should now see a message like:
 
 > As setup, this transaction would cost **238377.74415** gwei in gas.
+
+## Step 7: Calculating and displaying the percentage of gas fees
+
+Calculating the percentage of gas fees paid should now be easy:
+
+```typescript
+const transactionValueInWei = parseInt(transaction.value as string, 16);
+const gasFeesPercentage = (gasFees / (gasFees + transactionValueInWei)) * 100;
+
+return {
+  content: panel([
+    heading('Percent Snap'),
+    text(
+      `As setup, you are paying **${gasFeesPercentage.toFixed(
+        2,
+      )}%** in gas fees for this transaction.`,
+    ),
+  ]),
+};
+```
+
+Reinstall your snap, reactivate the "PERCENT SNAP" tab, and you should see a message like this:
+
+> As setup, you are paying **0.17%** in gas fees for this transaction.
+
+Well done! One more step to go 🔥

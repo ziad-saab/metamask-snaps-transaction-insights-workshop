@@ -20,13 +20,16 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
     (currentGasPriceInWei + maxPriorityFeePerGasInWei) * transactionGas,
   );
 
+  const transactionValueInWei = parseInt(transaction.value as string, 16);
+  const gasFeesPercentage = (gasFees / (gasFees + transactionValueInWei)) * 100;
+
   return {
     content: panel([
       heading('Percent Snap'),
       text(
-        `As setup, this transaction would cost **${
-          gasFees / 1_000_000_000
-        }** gwei in gas.`,
+        `As setup, you are paying **${gasFeesPercentage.toFixed(
+          2,
+        )}%** in gas fees for this transaction.`,
       ),
     ]),
   };
