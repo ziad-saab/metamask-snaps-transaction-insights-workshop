@@ -4,14 +4,14 @@ Welcome to this ETHDenver 2023 workshop on [MetaMask 🦊 Snaps](https://metamas
 
 Doing so will require multiple steps. If you want to follow the workshop step-by-step, you'll find each incremental step in branches of the form `step-XX` in this repository:
 
-1. [Step 1: Initialization,  cleanup, and setup](#step-1-initialization-cleanup-and-setup) • ([go to branch](/tree/step-01))
-2. [Step 2: Setting up the snap for Transaction Insights](#step-2-setting-up-the-snap-for-transaction-insights) • ([go to branch](/tree/step-02))
-3. [Step 3: Enabling the Ethereum Provider in the snap](#step-3-enabling-the-ethereum-provider-in-the-snap) • ([go to branch](/tree/step-03))
-4. [Step 4: Fetching the gas price](#step-4-fetching-the-gas-price) • ([go to branch](/tree/step-04))
-5. [Step 5: Showing the gas price in the transaction insights UI](#step-5-showing-the-gas-price-in-the-transaction-insights-ui) • ([go to branch](/tree/step-05))
-6. [Step 6: Calculating and displaying the total gas that would be paid](#step-6-calculating-and-displaying-the-total-gas-that-would-be-paid) • ([go to branch](/tree/step-06))
-7. [Step 7: Calculating and displaying the percentage of gas fees](#step-7-calculating-and-displaying-the-percentage-of-gas-fees) • ([go to branch](/tree/step-07))
-8. [Step 8: Displaying a different UI for contract interactions](#step-8-displaying-a-different-ui-for-contract-interactions) • ([go to branch](/tree/step-08))
+1. [Step 1: Initialization,  cleanup, and setup](#step-1-initialization-cleanup-and-setup) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-01))
+2. [Step 2: Setting up the snap for Transaction Insights](#step-2-setting-up-the-snap-for-transaction-insights) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-02))
+3. [Step 3: Enabling the Ethereum Provider in the snap](#step-3-enabling-the-ethereum-provider-in-the-snap) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-03))
+4. [Step 4: Fetching the gas price](#step-4-fetching-the-gas-price) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-04))
+5. [Step 5: Showing the gas price in the transaction insights UI](#step-5-showing-the-gas-price-in-the-transaction-insights-ui) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-05))
+6. [Step 6: Calculating and displaying the total gas that would be paid](#step-6-calculating-and-displaying-the-total-gas-that-would-be-paid) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-06))
+7. [Step 7: Calculating and displaying the percentage of gas fees](#step-7-calculating-and-displaying-the-percentage-of-gas-fees) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-07))
+8. [Step 8: Displaying a different UI for contract interactions](#step-8-displaying-a-different-ui-for-contract-interactions) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-08))
 
 ## Step 1: Initialization, cleanup, and setup
 
