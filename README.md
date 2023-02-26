@@ -298,6 +298,12 @@ This completes the creation of our snap. Good work 🦊♥️
 
 In this workshop I chose to focus on the Transaction Insights feature of MetaMask Snaps. If you'd like to see a similar workshop on accounts and key management, make sure to reach out to me to let me know. Meanwhile, check out our [documentation on MetaMask Snaps Accounts & Key Management](https://docs.metamask.io/guide/snaps-concepts.html#accounts-and-key-management).
 
+### Some existing accounts and key management snaps:
+
+* [KeystoneHQ's Bitcoin Snap](https://github.com/KeystoneHQ/btcsnap-1) - A snap to manage your bitcoin keys and transactions.
+* [StarkNet Snap by ConsenSys](https://github.com/ConsenSys/starknet-snap) - Allows to deploy StarkNet accounts, make transactions on StarkNet, and interact with StarkNet smart contracts.
+* [Snappy Recovery](https://github.com/ziad-saab/snappy-recovery) - I built this Private Key Social Recovery snap for my interview as Developer Advocate at MetaMask. It's currently outdated vs. the latest MetaMask Flask.
+
 ## Where to go from here?
 
 The Snaps platform is extremely powerful. In addition to letting you provide transaction insights, Snaps also allow you to:
