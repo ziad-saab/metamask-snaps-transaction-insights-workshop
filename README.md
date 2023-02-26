@@ -4,14 +4,14 @@ Welcome to this ETHDenver 2023 workshop on [MetaMask 🦊 Snaps](https://metamas
 
 Doing so will require multiple steps. If you want to follow the workshop step-by-step, you'll find each incremental step in branches of the form `step-XX` in this repository:
 
-1. [Step 1](/tree/step-01): Initialization,  cleanup, and setup
-2. [Step 2](/tree/step-02): Setting up the snap for Transaction Insights
-3. [Step 3](/tree/step-03): Enabling the Ethereum Provider in the snap
-4. [Step 4](/tree/step-04): Fetching the gas price
-5. [Step 5](/tree/step-05): Showing the gas price in the transaction insights UI
-6. [Step 6](/tree/step-06): Calculating and displaying the total gas that would be paid
-7. [Step 7](/tree/step-07): Calculating and displaying the percentage of gas fees
-8. [Step 8](/tree/step-08): Displaying a different UI for contract interactions
+1. [Step 1](/tree/step-01): [Initialization,  cleanup, and setup](#step-1-initialization-cleanup-and-setup)
+2. [Step 2](/tree/step-02): [Setting up the snap for Transaction Insights](#step-2-setting-up-the-snap-for-transaction-insights)
+3. [Step 3](/tree/step-03): [Enabling the Ethereum Provider in the snap](#step-3-enabling-the-ethereum-provider-in-the-snap)
+4. [Step 4](/tree/step-04): [Fetching the gas price](#step-4-fetching-the-gas-price)
+5. [Step 5](/tree/step-05): [Showing the gas price in the transaction insights UI](#step-5-showing-the-gas-price-in-the-transaction-insights-ui)
+6. [Step 6](/tree/step-06): [Calculating and displaying the total gas that would be paid](#step-6-calculating-and-displaying-the-total-gas-that-would-be-paid)
+7. [Step 7](/tree/step-07): [Calculating and displaying the percentage of gas fees](#step-7-calculating-and-displaying-the-percentage-of-gas-fees)
+8. [Step 8](/tree/step-08): [Displaying a different UI for contract interactions](#step-8-displaying-a-different-ui-for-contract-interactions)
 
 ## Step 1: Initialization, cleanup, and setup
 
@@ -293,3 +293,32 @@ if (typeof transaction.data === 'string' && transaction.data !== '0x') {
 ```
 
 This completes the creation of our snap. Good work 🦊♥️
+
+## What about accounts and key management?
+
+In this workshop I chose to focus on the Transaction Insights feature of MetaMask Snaps. If you'd like to see a similar workshop on accounts and key management, make sure to reach out to me to let me know. Meanwhile, check out our [documentation on MetaMask Snaps Accounts & Key Management](https://docs.metamask.io/guide/snaps-concepts.html#accounts-and-key-management).
+
+## Where to go from here?
+
+The Snaps platform is extremely powerful. In addition to letting you provide transaction insights, Snaps also allow you to:
+
+- [Derive private keys for different coin types](https://docs.metamask.io/guide/snaps-concepts.html#accounts-and-key-management)
+- [Derive snap-specific entropy](https://docs.metamask.io/guide/snaps-rpc-api.html#snap-getentropy)
+- [Run cronjobs](https://docs.metamask.io/guide/snaps-exports.html#oncronjob)
+- [Display notifications](https://docs.metamask.io/guide/snaps-rpc-api.html#snap-notify)
+- [Store encrypted data in the snaps' sandbox](https://docs.metamask.io/guide/snaps-rpc-api.html#snap-managestate)
+
+We're excited to see what you'll be building with Snaps 🚀👨🏻‍🚀🌕🧀🔥 You can reach out to us on the following resources:
+
+- [Discord in the `#snaps-dev` channel](https://discord.com/channels/697535391594446898/697538943498977400)
+- [GitHub Discussions for `@metamask/snaps-monorepo`](https://github.com/MetaMask/snaps-monorepo/discussions)
+- [Twitter @MetaMaskDev](https://twitter.com/MetaMaskDev)
+
+## Reach out to me
+
+- [Ziad Saab's Twitter](https://twitter.com/ZiadMTL)
+- [Ziad Saab's Telegram](https://t.me/ziadmtl)
+
+## Thank you
+
+Thank you for taking the time to go through this workshop, and learing more about [MetaMask Snaps](https://metamask.io/snaps/) 🧡
