@@ -2,6 +2,12 @@
 
 Welcome to this ETHDenver 2023 workshop on [MetaMask 🦊 Snaps](https://metamask.io/snaps/)! In this workshop, we're going to extend the functionality of the MetaMask wallet by providing users with useful transaction insights. More specifically, for simple ETH transfers, we'll be showing users what percentage of the value of their ETH transfer they'd be paying in gas fees.
 
+Here is how the final interaction will look like:
+
+
+https://user-images.githubusercontent.com/3943143/221385816-2fdeaf19-90d6-4f68-b259-5519b989c942.mp4
+
+
 Doing so will require multiple steps. If you want to follow the workshop step-by-step, you'll find each incremental step in branches of the form `step-XX` in this repository:
 
 1. [Step 1: Initialization,  cleanup, and setup](#step-1-initialization-cleanup-and-setup) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-01))
