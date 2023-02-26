@@ -1,4 +1,4 @@
-# ETHDenver 2023 Workshop: Providing Transaction Insights with MetaMask 🦊 Snaps 🔥
+# ETHDenver 2023 Workshop: Providing Transaction Insights with MetaMask 🦊 Snaps 🔥🐳🍴🥄💦
 
 Welcome to this ETHDenver 2023 workshop on [MetaMask 🦊 Snaps](https://metamask.io/snaps/)! In this workshop, we're going to extend the functionality of the MetaMask wallet by providing users with useful transaction insights. More specifically, for simple ETH transfers, we'll be showing users what percentage of the value of their ETH transfer they'd be paying in gas fees.
 
