@@ -1,8 +1,8 @@
 {
-  "name": "ethdenver-snaps-workshop",
+  "name": "metamask-snaps-transaction-insights-workshop",
   "version": "0.1.0",
   "private": true,
-  "description": "This project contains the code for the ETHDenver 2023 MetaMask Snaps Workshop",
+  "description": "This project contains the code for the MetaMask Snaps Transaction Insights Workshop",
   "license": "MIT",
   "author": "Ziad Saab <ziad.saab@gmail.com>",
   "workspaces": [

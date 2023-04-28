@@ -1,6 +1,6 @@
-# ETHDenver 2023 Workshop: Providing Transaction Insights with MetaMask 🦊 Snaps 🔥🐳🍴🥄💦
+# Providing Transaction Insights with MetaMask 🦊 Snaps 🔥
 
-Welcome to this ETHDenver 2023 workshop on [MetaMask 🦊 Snaps](https://metamask.io/snaps/)! In this workshop, we're going to extend the functionality of the MetaMask wallet by providing users with useful transaction insights. More specifically, for simple ETH transfers, we'll be showing users what percentage of the value of their ETH transfer they'd be paying in gas fees.
+Welcome to this workshop on [MetaMask 🦊 Snaps](https://metamask.io/snaps/)! In this workshop, we're going to extend the functionality of the MetaMask wallet by providing users with useful transaction insights. More specifically, for simple ETH transfers, we'll be showing users what percentage of the value of their ETH transfer they'd be paying in gas fees.
 
 Here is how the final interaction will look like:
 
@@ -10,37 +10,16 @@ https://user-images.githubusercontent.com/3943143/221385816-2fdeaf19-90d6-4f68-b
 
 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-Doing so will require multiple steps. If you want to follow the workshop step-by-step, you'll find each incremental step in branches of the form `step-XX` in this repository:
-
-1. [Step 1: Initialization,  cleanup, and setup](#step-1-initialization-cleanup-and-setup) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-01))
-2. [Step 2: Setting up the snap for Transaction Insights](#step-2-setting-up-the-snap-for-transaction-insights) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-02))
-3. [Step 3: Enabling the Ethereum Provider in the snap](#step-3-enabling-the-ethereum-provider-in-the-snap) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-03))
-4. [Step 4: Fetching the gas price](#step-4-fetching-the-gas-price) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-04))
-5. [Step 5: Showing the gas price in the transaction insights UI](#step-5-showing-the-gas-price-in-the-transaction-insights-ui) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-05))
-6. [Step 6: Calculating and displaying the total gas that would be paid](#step-6-calculating-and-displaying-the-total-gas-that-would-be-paid) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-06))
-7. [Step 7: Calculating and displaying the percentage of gas fees](#step-7-calculating-and-displaying-the-percentage-of-gas-fees) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-07))
-8. [Step 8: Displaying a different UI for contract interactions](#step-8-displaying-a-different-ui-for-contract-interactions) • ([go to branch](https://github.com/ziad-saab/ethdenver-2023-metamask-snaps-workshop/tree/step-08))
-
-Collect your power-up and let's go >>> 🍄
-
 ## Step 1: Initialization, cleanup, and setup 🚀👨🏻‍🚀🌕🧀
 
-In this first step, we'll be initializing a new Snaps project using the [Snaps CLI](https://github.com/MetaMask/snaps-monorepo/tree/main/packages/snaps-cli). We'll then cleanup the project by removing some unneeded files. Finally, we'll make the project our own by giving it a name other than "Example Snap".
+In this first step, we'll be initializing a new Snaps project using `yarn create`. We'll then cleanup the project by removing some unneeded files. Finally, we'll make the project our own by giving it a name other than "Example Snap".
 
 ### Creating a new snap project 🏕️🔥
 
-Creating a new snap project is done using the Snaps CLI. First, install the CLI globally:
+Creating a new snap project is as easy as:
 
 ```sh
-yarn global add @metamask/snaps-cli
-# or
-npm i -g @metamask/snaps-cli
-```
-
-This will add an `mm-snap` command in your path. Secondly, you'll use this command to create a new snap project:
-
-```sh
-mm-snap init ethdenver-snaps-workshop
+yarn create @metamask/snap transaction-insights-snaps-workshop
 ```
 
 ### Cleaning up the initial project 🧹🧼
@@ -143,7 +122,7 @@ The template snap provided to you is setup to expose a JSON-RPC API with a simpl
 
 5. From MetaMask, create a new ETH transfer
 
-6. On the confirmation window, you'll see a new tab named "ETHDENVER 2023 PERCENT SNAP". Switch to that tab. Note that it's the switching to the tab that activates the `onTransaction` export of your snap to be called.
+6. On the confirmation window, you'll see a new tab named "PERCENT SNAP". Switch to that tab. Note that it's the switching to the tab that activates the `onTransaction` export of your snap to be called.
 
 7. Notice the Custom UI output from the snap.
 
@@ -159,7 +138,7 @@ The template snap provided to you is setup to expose a JSON-RPC API with a simpl
 
 4. Under "Inspect views", click on `background.html`
 
-5. Go back to the MetaMask transaction window, and switch back to the "ETHDENVER 2023 PERCENT SNAP". You should now see the result of your `console.log` in the new developer tools window linked to `background.html`
+5. Go back to the MetaMask transaction window, and switch back to the "PERCENT SNAP". You should now see the result of your `console.log` in the new developer tools window linked to `background.html`
 
 ## Step 3: Enabling the Ethereum Provider in the snap 🫰🏻🔥
 
@@ -188,7 +167,7 @@ const currentGasPrice = await ethereum.request({
 console.log('Current gas price', currentGasPrice);
 ```
 
-Reinstall the snap, go back to the MetaMask transaction window, and switch to the "ETHDENVER 2023 PERCENT SNAP" tab. This will activate the `onTransaction` callback. In the developer tools window you should see a `console.log` like `Current gas price 0x66b04938`. The gas price is returned as a hex string in wei.
+Reinstall the snap, go back to the MetaMask transaction window, and switch to the "PERCENT SNAP" tab. This will activate the `onTransaction` callback. In the developer tools window you should see a `console.log` like `Current gas price 0x66b04938`. The gas price is returned as a hex string in wei.
 
 ## Step 5: Showing the gas price in the transaction insights UI ⛽️🤑💰💸
 
@@ -306,7 +285,7 @@ This completes the creation of our snap. Good work 🦊♥️
 
 ## What about accounts and key management? ‼️⚠️📈
 
-In this workshop I chose to focus on the Transaction Insights feature of MetaMask Snaps. If you'd like to see a similar workshop on accounts and key management, make sure to reach out to me to let me know. Meanwhile, check out our [documentation on MetaMask Snaps Accounts & Key Management](https://docs.metamask.io/guide/snaps-concepts.html#accounts-and-key-management).
+In this workshop I chose to focus on the Transaction Insights feature of MetaMask Snaps. If you'd like to see a similar workshop on accounts and key management, look to the [Dogecoin Snap Tutorial](https://github.com/ziad-saab/dogecoin-snap/)!
 
 ### Some existing accounts and key management snaps:
 
